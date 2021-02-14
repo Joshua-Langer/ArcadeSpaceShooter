@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DestroyByContact : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.tag == "Obstacle" || other.tag == "Enemy")
+        {
+            //TODO: Create Explosion
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

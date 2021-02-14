@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using Unity.Entities;
-using Unity.Transforms;
-using ArcadeShooter.Managers;
+﻿using ArcadeShooter.Managers;
+using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -13,8 +11,6 @@ public class PlayerWeapon : MonoBehaviour
     [Header("Effects")]
     //Sound
 
-    EntityManager entityManager;
-    Entity bulletEntityPrefab;
 
     float shotTimer = 0f;
     bool isFireButtonDown = false;
@@ -22,17 +18,12 @@ public class PlayerWeapon : MonoBehaviour
 
     protected virtual void Start()
     {
-        entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        var settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
-        bulletEntityPrefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(bulletPrefab, settings);
+
     }
 
     public virtual void FireBullet()
     {
-        Entity bullet = entityManager.Instantiate(bulletEntityPrefab);
-        entityManager.SetComponentData(bullet, new Translation { Value = muzzleTransform.position});
-        entityManager.SetComponentData(bullet, new Rotation { Value = muzzleTransform.rotation});
-        //Play Sound
+        Instantiate(bulletPrefab, muzzleTransform.position, Quaternion.Euler(90f, 0f, 0f));
     }
 
     protected virtual void Update()
