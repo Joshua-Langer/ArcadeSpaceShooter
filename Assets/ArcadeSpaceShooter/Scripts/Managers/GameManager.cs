@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ArcadeShooter.Managers{
     public class GameManager : MonoBehaviour
     {
         static int score = 0;
         static bool isGameOver = false;
+        static int playerLives = 3;
 
         public static GameManager Instance;
 
@@ -15,15 +17,24 @@ namespace ArcadeShooter.Managers{
             return score;
         }
 
+        public static int GetPlayerLives()
+        {
+            return playerLives;
+        }
+
+        public static void AddPlayerLives(int life)
+        {
+            playerLives += life;
+        }
+
         public static bool IsGameOver()
         {
             return isGameOver;
         }
 
-        public static bool GameOver(bool value)
+        public static void GameOver(bool value)
         {
             isGameOver = value;
-            return isGameOver;
         }
 
         private void Awake()
@@ -43,14 +54,27 @@ namespace ArcadeShooter.Managers{
             }
         }
 
-        public void AddToScore(int scoreValue)
+        public static void AddToScore(int scoreValue)
         {
             score += scoreValue;
+            Debug.Log("Player Score is " + score);
         }
 
         public void ResetGame()
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            playerLives--;
+            isGameOver = false;
+            Debug.Log("Player has lost a life, they are at " + playerLives);
+        }
+
+        void Update()
+        {
+            if(isGameOver)
+            {
+                if(playerLives == 0) {Debug.Log("Player out of lives, scoreboard will show here.");}
+                if(playerLives > 0) {ResetGame();} 
+            }
         }
     }
 }

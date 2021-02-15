@@ -388,6 +388,12 @@ Transform:
   m_Father: {fileID: 1376520032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1061329582 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8170345298015665758, guid: c7c8a7f2e903bc04cb30992890cb1794,
+    type: 3}
+  m_PrefabInstance: {fileID: 8194946021889735585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1376520030
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +501,7 @@ GameObject:
   - component: {fileID: 1535783039}
   - component: {fileID: 1535783042}
   - component: {fileID: 1535783043}
+  - component: {fileID: 1535783044}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -607,6 +614,22 @@ Skybox:
   m_GameObject: {fileID: 1535783038}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 2d056ac30ecc9e542b26e06133f23602, type: 2}
+--- !u!114 &1535783044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535783038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115789a596900f942b9aedf737f72385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1061329582}
+  camTransform: {fileID: 1535783041}
+  Offset: {x: 0, y: 0, z: 0}
+  smoothTime: 1.5
 --- !u!1 &1551400615
 GameObject:
   m_ObjectHideFlags: 0

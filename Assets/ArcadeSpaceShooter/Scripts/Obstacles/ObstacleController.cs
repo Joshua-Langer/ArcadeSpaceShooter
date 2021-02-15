@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ArcadeShooter.Managers;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
@@ -11,7 +12,6 @@ public class ObstacleController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         speed = Random.Range(1f, 6f);
-        Debug.Log("Asteroid speed is " + speed);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -23,5 +23,14 @@ public class ObstacleController : MonoBehaviour
     {
         Vector3 fall = Vector3.back;
         rigidbody.velocity = fall * speed;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            Destroy(other.gameObject);
+            GameManager.GameOver(true);
+        }
     }
 }

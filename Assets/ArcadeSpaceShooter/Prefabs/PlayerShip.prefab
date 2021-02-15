@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2747776194495540125}
   - component: {fileID: 4504371951682453615}
   - component: {fileID: 6485041632929723582}
+  - component: {fileID: 99208346607309352}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -187,3 +188,17 @@ MonoBehaviour:
   muzzleTransform: {fileID: 3609534274871288053}
   bulletPrefab: {fileID: 2418589221805843954, guid: 63ae7fa3d9680c44aabade657a20098e,
     type: 3}
+--- !u!64 &99208346607309352
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802625693338952932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9032557090061056480, guid: ba0deaa5820b5b349a1c76a08b70c2ab, type: 3}
